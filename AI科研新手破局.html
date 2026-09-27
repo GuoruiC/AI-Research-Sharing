@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-themes="minimal-white,academic-paper,corporate-clean,catppuccin-latte">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI科研新手破局：从零起步到顶会投稿</title>
+<link rel="stylesheet" href="./html-ppt-assets/fonts.css">
+<link rel="stylesheet" href="./html-ppt-assets/base.css">
+<link rel="stylesheet" id="theme-link" href="./html-ppt-assets/themes/minimal-white.css">
+<link rel="stylesheet" href="./html-ppt-assets/animations/animations.css">
+<link rel="stylesheet" href="./AI科研新手破局.css">
+</head>
+<body class="tpl-ai-research" data-theme-base="./html-ppt-assets/themes/">
+<div class="deck">
+
+  <section class="slide hero" data-title="Cover">
+    <div class="cover-grid">
+      <div class="cover-copy">
+        <p class="kicker">AI research starter path</p>
+        <h1 class="h1">AI科研新手破局</h1>
+        <p class="lede">从文献阅读、选题定位、代码复现、论文写作，到顶会投稿和拒稿修稿</p>
+        <div class="meta">
+          <span class="tag">陈国瑞</span>
+          <span class="tag">2026.8.24</span>
+          <span class="tag">GuoRuiC@outlook.com</span>
+        </div>
+      </div>
+      <div class="cover-photo">
+        <img src="./ai-research-ppt-images/literature-reading.png" alt="literature reading">
+      </div>
+    </div>
+    <div class="deck-footer">
+      <span>本地 HTML 幻灯片 · 按 S 打开演讲者模式</span>
+      <span class="slide-number" data-current="1" data-total="15"></span>
+    </div>
+    <aside class="notes">
+      <p>大家好，我是<strong>陈国瑞</strong>。今天这场分享不是讲一个遥远的成功故事，而是把我从零开始做 AI 科研时踩过的坑、用过的方法、被拒稿之后的修稿经验，整理成一条可以落地的路径。</p>
+      <p>这条路径大概分成六步：先看清 AI 发展带来的科研节奏变化，再讲<strong>文献怎么收集和阅读</strong>，然后讲<strong>选题定位</strong>、<strong>代码复现</strong>、<strong>论文写作</strong>，最后讲顶会投稿、rebuttal 和心态。</p>
+      <p>我希望大家听完之后，至少能带走一个判断：AI 不是替代你做科研的人，但它已经把科研流程里大量机械劳动压缩了。真正重要的是你能不能把节省下来的时间，用在问题判断、实验设计和论文论证上。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="AI Context">
+    <p class="kicker">00 · big picture</p>
+    <h2 class="h2">AI让科研从“慢积累”进入“快迭代”</h2>
+    <div class="page-grid g3 mt-l">
+      <div class="card">
+        <div class="big-num">88%</div>
+        <h3>组织采用率</h3>
+        <p>Stanford AI Index 2026 称，组织层面的生成式 AI 采用已经非常普遍。</p>
+      </div>
+      <div class="card">
+        <div class="big-num">80k</div>
+        <h3>自然科学 AI 论文</h3>
+        <p>2025 年自然科学方向约 80,150 篇 AI 相关论文，较 2024 年增长约 26%。</p>
+      </div>
+      <div class="card">
+        <div class="big-num">~100%</div>
+        <h3>代码能力跃迁</h3>
+        <p>SWE-bench Verified 等编码基准快速接近饱和，代码复现的门槛被重塑。</p>
+      </div>
+    </div>
+    <p class="source-line">参考：Stanford HAI, 2026 AI Index Report。</p>
+    <div class="deck-footer"><span>开场判断</span><span class="slide-number" data-current="2" data-total="15"></span></div>
+    <aside class="notes">
+      <p>先从大背景说起。AI 的变化不只是模型越来越强，而是它正在改变科研的节奏。Stanford AI Index 2026 里有几个数字很有代表性：组织采用率达到 88%，自然科学里的 AI 相关论文还在快速增长，编码类基准也在一年内出现了非常明显的跃迁。</p>
+      <p>这意味着什么？对新手来说，过去最耗时间的几件事，像查资料、搭环境、读代码、改实验脚本、润色英文，现在都有工具可以辅助。你的竞争压力不是“别人比你聪明很多”，而是别人可能已经把这些流程自动化了。</p>
+      <p>所以今天我不会讲“AI 会不会替代科研”，而是讲一个更现实的问题：<strong>在 AI 已经存在的前提下，新手怎么把节奏跑起来</strong>。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Whole Map">
+    <p class="kicker">01 · roadmap</p>
+    <h2 class="h2">一条能跑通的 AI 科研入门路径</h2>
+    <div class="pipeline anim-stagger-list" data-anim-target>
+      <div class="pipe-step"><span class="num">01</span><b>收集文献</b><span>建立稳定的信息入口，而不是临时搜索。</span></div>
+      <div class="pipe-step"><span class="num">02</span><b>阅读文献</b><span>从问题、方法、实验、局限四个维度拆解。</span></div>
+      <div class="pipe-step"><span class="num">03</span><b>定位选题</b><span>Motivation 自己判断，AI 辅助查新。</span></div>
+      <div class="pipe-step"><span class="num">04</span><b>代码复现</b><span>先跑通 baseline，再谈改进。</span></div>
+      <div class="pipe-step"><span class="num">05</span><b>论文写作</b><span>保留可追溯记录，AI 做润色和挑刺。</span></div>
+      <div class="pipe-step"><span class="num">06</span><b>投稿迭代</b><span>拒稿正常，rebuttal 是第二次表达。</span></div>
+    </div>
+    <div class="deck-footer"><span>全局脉络</span><span class="slide-number" data-current="3" data-total="15"></span></div>
+    <aside class="notes">
+      <p>这页是今天的总路线。对新手来说，科研最容易失败的地方不是某一个环节做不好，而是整个流程没有闭环。比如文献看了很多，但没有形成问题判断；代码跑通了，但不知道实验在支撑什么 claim；论文写了很多，但 reviewer 一问就散。</p>
+      <p>所以我建议把 AI 科研入门拆成六个连续动作。第一，稳定收集文献；第二，用结构化方式阅读文献；第三，自己完成选题判断，让 AI 辅助查新；第四，尽快完成代码复现；第五，写论文时重视可追溯；第六，把投稿和拒稿当成迭代流程。</p>
+      <p>后面每一部分我都会给一个可执行方法，而不是只讲抽象原则。先从文献开始。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Collect Literature">
+    <p class="kicker">02 · literature collection</p>
+    <h2 class="h2">文献收集不是“搜一搜”，而是搭一个信息雷达</h2>
+    <div class="page-grid g2 mt-l">
+      <div class="diagram-panel compact"><img src="./ai-research-ppt-images/paper-search.svg" alt="paper search diagram"></div>
+      <div class="matrix">
+        <div class="cell"><h4>一手入口</h4><p>arXiv、OpenReview、会议官网、期刊 ToC。先看原始材料，少被二手解读带偏。</p></div>
+        <div class="cell"><h4>工程入口</h4><p>Papers with Code、GitHub、Hugging Face。优先找能复现的论文。</p></div>
+        <div class="cell"><h4>中文入口</h4><p>知乎、CSDN、机器之心、公众号。适合快速补背景，但不能替代原文。</p></div>
+        <div class="cell"><h4>提醒机制</h4><p>关键词 alert、作者追踪、同领域 benchmark 榜单。每周固定扫一次。</p></div>
+      </div>
+    </div>
+    <p class="source-line">参考：Papers with Code；知乎/CSDN 关于论文阅读与复现的经验帖。</p>
+    <div class="deck-footer"><span>文献收集</span><span class="slide-number" data-current="4" data-total="15"></span></div>
+    <aside class="notes">
+      <p>文献收集我建议大家不要理解成“需要的时候去搜一下”。真正有效的做法是搭一个信息雷达，让重要论文自己进入你的视野。</p>
+      <p>我一般把入口分成四类。第一类是一手入口，包括 arXiv、OpenReview、会议官网和期刊目录，这些是最可靠的信息源。第二类是工程入口，比如 Papers with Code、GitHub、Hugging Face，它们能告诉你这篇论文有没有代码、数据和 benchmark。第三类是中文入口，比如知乎、CSDN 和一些技术媒体，适合快速补背景，但是一定要回到原文核对。第四类是提醒机制，关键词、作者、机构和榜单都要长期追踪。</p>
+      <p>新手最重要的不是一天看很多篇，而是每周都能稳定知道：这个方向最近发生了什么。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Read Literature">
+    <p class="kicker">03 · literature reading</p>
+    <h2 class="h2">读论文要分层：先判断值不值得读，再决定读多深</h2>
+    <div class="page-grid g2 mt-l">
+      <div class="diagram-panel compact"><img src="./ai-research-ppt-images/paper-reading.svg" alt="paper reading diagram"></div>
+      <div class="page-grid g2">
+        <div class="ladder-step"><span class="num">Pass 1</span><h3>标题 / 摘要 / 图表</h3><p>3 到 5 分钟判断问题、任务和主要结论。</p></div>
+        <div class="ladder-step"><span class="num">Pass 2</span><h3>引言 / 方法 / 实验</h3><p>找清楚 motivation、核心方法和对照组。</p></div>
+        <div class="ladder-step"><span class="num">Pass 3</span><h3>公式 / 实现 / 消融</h3><p>把算法细节、训练设置、指标差距拆出来。</p></div>
+        <div class="ladder-step"><span class="num">Pass 4</span><h3>复述 / 批判 / 迁移</h3><p>用自己的话复述贡献，并找出可改进处。</p></div>
+      </div>
+    </div>
+    <p class="source-line">参考：知乎“读论文七步走”；CSDN“三遍阅读法”；沈向洋/华刚/吴恩达论文阅读建议整理。</p>
+    <div class="deck-footer"><span>文献阅读</span><span class="slide-number" data-current="5" data-total="15"></span></div>
+    <aside class="notes">
+      <p>读论文最忌讳从第一页逐字读到最后一页。这样很容易被公式、细节和术语拖住，而且读完也不知道这篇论文到底值不值得投入时间。</p>
+      <p>我更推荐分层阅读。第一遍只看标题、摘要、图表和结论，用几分钟判断任务和贡献。第二遍看引言、方法和实验，弄清楚作者为什么做、怎么做、对比谁。第三遍再进入公式、实现细节和消融实验。第四遍是最关键的：合上论文，用自己的话复述它解决了什么问题，然后主动找它的局限。</p>
+      <p>这里 AI 可以帮忙，比如让它解释背景、生成阅读卡片、列出相关工作，但最终判断一定要自己做。因为你后面选题的 motivation，就是从这些判断里长出来的。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Topic Positioning">
+    <p class="kicker">04 · topic positioning</p>
+    <h2 class="h2">选题定位：AI 只负责查新，motivation 自己定</h2>
+    <div class="topic-map">
+      <div class="card"><span class="num">A</span><h3>真实问题</h3><p>你要能说清楚：现有方法在什么场景下不够好，为什么这个缺口重要。</p></div>
+      <div class="card center-node"><span class="num">B</span><h3>可验证假设</h3><p>把想法变成一句能被实验验证的假设，而不是一句“我觉得可以”。</p></div>
+      <div class="card"><span class="num">C</span><h3>可抢时间窗</h3><p>持续查新，确认没有相同论文抢先；有相似工作时，快速剖析差异。</p></div>
+    </div>
+    <div class="page-grid g3 mt-l">
+      <div class="card"><h3>AI 适合做</h3><p>搜相近论文、整理差异表、追踪最新 arXiv、模拟 reviewer 质疑。</p></div>
+      <div class="card bad-card"><h3>AI 不适合做</h3><p>替你决定“这个方向为什么重要”。这部分必须来自你的领域理解。</p></div>
+      <div class="card"><h3>判断标准</h3><p>能否三句话讲清问题、方法和预期实验；讲不清就继续收敛。</p></div>
+    </div>
+    <div class="deck-footer"><span>选题定位</span><span class="slide-number" data-current="6" data-total="15"></span></div>
+    <aside class="notes">
+      <p>选题是新手最想让 AI 帮忙的环节，但这里要特别谨慎。我的建议是：<strong>Motivation 不要外包给 AI</strong>。AI 可以给你十个方向，但它不知道你有什么资源、导师关注什么、领域里哪些问题是真的痛点，也不知道你能不能在三个月内做完。</p>
+      <p>真正的选题应该落在三个点上。第一，有真实问题，现有方法在某个场景里确实不够好。第二，有可验证假设，你的方法改动能够被实验检验。第三，有时间窗，你要持续查新，确认没有被别人抢先。</p>
+      <p>AI 最适合做的是查新和反向质疑。让它帮你找相近论文、整理差异、模拟 reviewer 提问，这些很有价值。但“为什么值得做”，必须由你自己回答。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Code Reproduction">
+    <p class="kicker">05 · code reproduction</p>
+    <h2 class="h2">代码复现：从体力活到流程控制</h2>
+    <div class="page-grid g2 mt-l">
+      <div class="tool-list stack">
+        <div class="tool-card">
+          <div class="brand">Codex</div>
+          <ul>
+            <li>本地 / IDE / 云端结合</li>
+            <li>适合 repo 理解和补实验脚本</li>
+            <li>重点看 diff，确认它改了哪里</li>
+          </ul>
+        </div>
+        <div class="tool-card">
+          <div class="brand">Claude Code</div>
+          <ul>
+            <li>终端式 coding agent</li>
+            <li>擅长长流程解释、重构和调试</li>
+            <li>适合多文件任务和复杂报错</li>
+          </ul>
+        </div>
+        <div class="tool-card">
+          <div class="brand">Kimi Code</div>
+          <ul>
+            <li>CLI 与 VS Code 形态</li>
+            <li>适合中文交互和长上下文代码库</li>
+            <li>先让它解释代码，再让它动手</li>
+          </ul>
+        </div>
+      </div>
+      <div class="diagram-panel compact"><img src="./ai-research-ppt-images/coding-agent.svg" alt="coding agent diagram"></div>
+    </div>
+    <p class="source-line">参考：OpenAI Codex docs；Anthropic Claude Code docs；Kimi Code 官方文档。</p>
+    <div class="deck-footer"><span>代码复现</span><span class="slide-number" data-current="7" data-total="15"></span></div>
+    <aside class="notes">
+      <p>代码复现是这两年变化最大的环节。以前新手复现论文，可能一半时间都卡在环境、路径、依赖版本和报错上。现在 Codex、Claude Code、Kimi Code 这类 coding agent 已经基本可以覆盖大量工程细节。</p>
+      <p>但这里有一个关键变化：你不再是亲手改每一行代码的人，而是<strong>流程控制者</strong>。你要会把任务拆清楚，比如先让 agent 解释 repo 结构，再确认入口脚本，再跑最小 demo，再修依赖，再复现实验。每一步都要有验证输出。</p>
+      <p>不要把 agent 当成神笔。它会犯错，也会误改不该改的地方。正确做法是让它在 git 管理下工作，所有改动都能 diff，所有实验都能复跑。复现不是“能跑一次”，而是能稳定得到可信结果。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Reproduce SOP">
+    <p class="kicker">06 · reproduce SOP</p>
+    <h2 class="h2">复现：先建立可解释的差距</h2>
+    <div class="page-grid g2 mt-l">
+      <div class="card">
+        <h3>最小可运行闭环</h3>
+        <ul class="tight-list">
+          <li>环境锁定：Python、CUDA、PyTorch、依赖版本</li>
+          <li>数据校验：路径、shape、样本数、预处理</li>
+          <li>baseline 先跑通：不要一上来改模型</li>
+          <li>日志完整：seed、参数、指标、显存、耗时</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>遇到差距时的顺序</h3>
+        <ul class="tight-list">
+          <li>先查数据，再查训练设置</li>
+          <li>先复现公开代码，再独立实现</li>
+          <li>先做单变量修改，再做组合优化</li>
+          <li>差距超过阈值时回溯，不盲目调参</li>
+        </ul>
+      </div>
+    </div>
+    <p class="source-line">参考：CSDN“论文复现方法论：从阅读到验证的系统化实践框架”。</p>
+    <div class="deck-footer"><span>复现 SOP</span><span class="slide-number" data-current="8" data-total="15"></span></div>
+    <aside class="notes">
+      <p>复现时大家最容易焦虑的是：为什么我的结果和论文不一样？但真实科研里，不一样是常态。复现的第一目标不是立刻得到完全一致的数字，而是建立一个可解释的差距。</p>
+      <p>我建议先做最小可运行闭环。环境要锁定，数据要校验，baseline 要先跑通，日志要完整。只要这些没做好，后面所有调参都很可能是在浪费时间。</p>
+      <p>遇到差距时也要有顺序。先查数据和预处理，再查训练设置；先复现公开代码，再独立实现；先单变量修改，再组合优化。很多新手一看到结果不好就改模型，这是危险的。你不知道问题来自哪里，就不可能写出可信的实验分析。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Paper Writing">
+    <p class="kicker">07 · paper writing</p>
+    <h2 class="h2">论文写作：AI 负责结构、表达和质疑</h2>
+    <div class="page-grid g2 mt-l">
+      <div class="diagram-panel compact"><img src="./ai-research-ppt-images/paper-writing-flow.svg" alt="paper writing flow"></div>
+      <div class="page-grid">
+        <div class="card"><h3>可以放心用</h3><p>语言润色、段落重组、逻辑提纲、LaTeX 检查、图表说明草稿。</p></div>
+        <div class="card"><h3>必须人工把关</h3><p>Motivation、实验 claim、相关工作定位、失败案例解释、最终结论。</p></div>
+        <div class="card"><h3>最推荐用法</h3><p>让 AI 扮演 reviewer 挑刺：贡献不清、实验不足、对比不公平、论证跳跃。</p></div>
+      </div>
+    </div>
+    <p class="source-line">参考：Nature Portfolio AI policy；Nature Methods 2026 editorial；Elsevier/ACM 相关 AI 使用政策。</p>
+    <div class="deck-footer"><span>论文写作</span><span class="slide-number" data-current="9" data-total="15"></span></div>
+    <aside class="notes">
+      <p>论文写作里，AI 的价值非常大，但边界也非常重要。我自己的判断是：AI 最适合帮你做结构、表达和质疑，不适合替你承担学术判断。</p>
+      <p>比如语言润色、段落重组、LaTeX 检查、图表说明，这些可以用。让 AI 看 introduction 的逻辑是否连贯，让它扮演 reviewer 挑刺，也很有帮助。特别是投稿前，让它从贡献、实验、公平性、相关工作四个角度连续攻击你的论文，能提前暴露很多问题。</p>
+      <p>但 motivation、实验 claim、失败案例解释和最终结论必须自己负责。因为论文不是作文，它背后对应的是你对问题的理解和实验事实。AI 可以让表达更清楚，但不能替你把不成立的结论变成立。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Traceability">
+    <p class="kicker">08 · policy and traceability</p>
+    <h2 class="h2">AI 写作时代：过程必须可追溯</h2>
+    <div class="policy-table">
+      <div class="card">
+        <h3>欧洲最新监管信号</h3>
+        <div class="policy-row"><b>2026-08-02</b><span>EU AI Act 第 50 条透明度义务开始适用。</span></div>
+        <div class="policy-row"><b>Machine-readable</b><span>生成式 AI 输出需要在技术可行范围内被机器可读地标记，并可检测为 AI 生成或修改。</span></div>
+        <div class="policy-row"><b>Disclosure</b><span>深度伪造和部分面向公共利益的信息文本，需要清晰披露 AI 生成或修改。</span></div>
+      </div>
+      <div class="card">
+        <h3>论文写作的自保动作</h3>
+        <ul class="tight-list">
+          <li>保留 prompt、修改记录、版本 diff 和人工审阅记录</li>
+          <li>区分“润色表达”和“生成实质内容”</li>
+          <li>投稿前阅读目标会议/期刊的 AI 使用政策</li>
+          <li>需要披露时，写清工具、范围和人工审核责任</li>
+        </ul>
+      </div>
+    </div>
+    <p class="source-line">参考：European Commission AI Act Article 50 guidelines and Code of Practice, 2026；Nature/ACM AI policy。</p>
+    <div class="deck-footer"><span>可追溯写作</span><span class="slide-number" data-current="10" data-total="15"></span></div>
+    <aside class="notes">
+      <p>这里要讲一个很现实的问题：AI 检测和水印。欧洲 AI Act 第 50 条的透明度义务在 2026 年 8 月 2 日开始适用，方向很清楚：生成式 AI 输出要在技术可行范围内可机器读取、可检测，深度伪造和部分公共信息文本要披露。</p>
+      <p>但我们不能把它简单理解成“所有 AI 生成文字都会被准确检测出来”。真实情况更复杂，不同工具、不同文本长度、不同编辑方式都会影响检测。对论文写作来说，更稳妥的策略不是躲检测，而是<strong>过程可追溯</strong>。</p>
+      <p>具体做法包括：保留 prompt、版本 diff、人工修改记录；区分润色和生成实质内容；投稿前看目标会议或期刊政策；需要披露时写清工具、使用范围和人工审核责任。这样即使被问到，也能讲得清楚。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Submission">
+    <p class="kicker">09 · conference submission</p>
+    <h2 class="h2">顶会投稿：拒稿是常态，rebuttal 是第二次表达</h2>
+    <div class="rebuttal-grid">
+      <div class="diagram-panel compact"><img src="./ai-research-ppt-images/rebuttal-sprint.svg" alt="rebuttal sprint diagram"></div>
+      <div class="review-board">
+        <div class="review-item"><b>Day 1</b><span>冷静读 review，标注事实错误、误解、合理质疑。</span></div>
+        <div class="review-item"><b>Day 2</b><span>聚类问题：贡献、实验、理论、写作、相关工作。</span></div>
+        <div class="review-item"><b>Day 3-5</b><span>补充可做实验，写 concise response，不扩大战线。</span></div>
+        <div class="review-item"><b>Day 6</b><span>内部交叉审阅，检查语气、证据和双盲风险。</span></div>
+        <div class="review-item"><b>Day 7</b><span>最终压缩表达，把最重要的澄清放前面。</span></div>
+      </div>
+    </div>
+    <p class="source-line">参考：CVPR 2026 rebuttal Jan 22-Jan 29；ICML 2026 response/discussion instructions；ICLR 2026 OpenReview discussion period。</p>
+    <div class="deck-footer"><span>投稿与 rebuttal</span><span class="slide-number" data-current="11" data-total="15"></span></div>
+    <aside class="notes">
+      <p>顶会投稿里，拒稿真的很正常。尤其是新手，第一篇、第二篇被拒，并不说明你不适合科研。更重要的是你能不能从 review 里读出真正的问题。</p>
+      <p>我建议收到 review 的第一天不要急着写反驳。先把评论分成几类：事实错误、误解、合理质疑、表达问题、实验不足。很多时候 reviewer 的一句负面评价背后，其实是在说“你的贡献没有讲清楚”或者“这个实验还不能支撑 claim”。</p>
+      <p>rebuttal 时间通常很紧，例如 CVPR 2026 是 1 月 22 到 1 月 29，刚好一周。这个阶段要合理分配：前两天读懂问题，中间补实验和写回复，最后做交叉审阅。语气要专业，不要情绪化；目标不是赢辩论，而是降低 reviewer 的不确定性。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Three Month Sprint">
+    <p class="kicker">10 · research rhythm</p>
+    <h2 class="h2">三个月左右结束一个课题</h2>
+    <div class="timeline anim-stagger-list" data-anim-target>
+      <div class="week"><span class="num">Week 1-2</span><b>定问题</b><p>查新、读核心论文、写一页 problem memo，确认不是重复工作。</p></div>
+      <div class="week"><span class="num">Week 3-5</span><b>跑 baseline</b><p>复现公开代码，建立数据、指标和日志闭环，固定对照组。</p></div>
+      <div class="week"><span class="num">Week 6-9</span><b>做改进</b><p>围绕一个核心假设做实验，拒绝无限扩张。</p></div>
+      <div class="week"><span class="num">Week 10-12</span><b>写投稿版</b><p>补消融、画图表、反复查新，确认差异和贡献仍然成立。</p></div>
+    </div>
+    <div class="deck-footer"><span>科研节奏</span><span class="slide-number" data-current="12" data-total="15"></span></div>
+    <aside class="notes">
+      <p>AI 出现以后，科研节奏明显加快。过去一个课题拖半年甚至一年很常见，但现在如果你的想法比较清晰，很多工程和写作辅助都能提速。我建议新手尽量用三个月作为一个课题闭环周期。</p>
+      <p>前三周最重要，不是急着改模型，而是把问题定准，持续查新，确认没有完全相同的工作。接下来跑 baseline，建立可复现闭环。中间四周集中做改进，围绕一个核心假设展开，不要什么都想加。最后三周写投稿版，补消融、画图、反复核对相关工作。</p>
+      <p>如果中途发现有相似论文出来，不要立刻放弃。先剖析差异：任务不同、假设不同、方法粒度不同、实验设置不同，都可能成为重新定位的机会。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Mindset">
+    <p class="kicker">11 · mindset</p>
+    <h2 class="h2">科研心态：把“不确定”拆成可以推进的动作</h2>
+    <div class="page-grid g4 mt-l">
+      <div class="card"><span class="num">01</span><h3>不要等完全看懂</h3><p>先复述问题，再补细节。完全看懂往往发生在复现之后。</p></div>
+      <div class="card"><span class="num">02</span><h3>不要只收藏资料</h3><p>每周必须产出阅读卡、实验日志或一页 memo。</p></div>
+      <div class="card"><span class="num">03</span><h3>不要害怕拒稿</h3><p>拒稿提供的是外部诊断，真正浪费的是不迭代。</p></div>
+      <div class="card"><span class="num">04</span><h3>不要孤立做题</h3><p>和导师、同门、AI reviewer 反复讨论，把问题逼清楚。</p></div>
+    </div>
+    <div class="deck-footer"><span>节奏与心态</span><span class="slide-number" data-current="13" data-total="15"></span></div>
+    <aside class="notes">
+      <p>最后讲一点心态。科研最折磨新手的地方，是长期处在不确定里。论文看不懂，实验跑不出来，idea 不知道有没有价值，投稿也不知道能不能中。</p>
+      <p>我的经验是，不要试图靠情绪硬扛不确定，而是把不确定拆成动作。看不懂论文，就先写阅读卡；实验不稳定，就先固定 seed 和日志；不知道选题有没有价值，就做查新表和 problem memo；怕 reviewer 质疑，就提前让同门和 AI reviewer 挑刺。</p>
+      <p>还有一点很重要：不要只输入不输出。收藏一百篇论文不等于做科研。每周至少产出一个东西，哪怕只是一页 memo。科研能力就是在这些小输出里慢慢长出来的。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Action Checklist">
+    <p class="kicker">12 · action checklist</p>
+    <h2 class="h2">明天就能开始的 7 个动作</h2>
+    <div class="page-grid g2 mt-l">
+      <div class="card">
+        <ul class="tight-list">
+          <li>建立一个文献表：论文、任务、代码、数据、贡献、局限</li>
+          <li>选择一个小方向，先读 10 篇近期论文</li>
+          <li>每篇论文只写 6 行阅读卡，不追求长笔记</li>
+          <li>找一篇有代码的论文，先跑通官方 baseline</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul class="tight-list">
+          <li>用 AI 做查新表，但自己写 motivation</li>
+          <li>给每次实验保留参数、日志、结果和失败原因</li>
+          <li>投稿前让 AI 和同门各做一次 reviewer 模拟</li>
+        </ul>
+      </div>
+    </div>
+    <div class="deck-footer"><span>落地清单</span><span class="slide-number" data-current="14" data-total="15"></span></div>
+    <aside class="notes">
+      <p>如果把今天的内容压缩成明天就能做的动作，我建议从这七件事开始。</p>
+      <p>第一，建立一个文献表，不要只保存 PDF。第二，选一个小方向，先读十篇近期论文。第三，每篇论文只写六行阅读卡，问题、方法、数据、实验、局限、可借鉴点。第四，找一篇有代码的论文，先跑通官方 baseline。第五，用 AI 做查新表，但 motivation 自己写。第六，每次实验都保留参数、日志、结果和失败原因。第七，投稿前做 reviewer 模拟。</p>
+      <p>这些动作看起来朴素，但它们能帮你形成科研闭环。新手阶段最重要的不是做出惊天动地的 idea，而是让自己具备稳定推进一个课题的能力。</p>
+    </aside>
+  </section>
+
+  <section class="slide thanks" data-title="Thanks">
+    <p class="kicker">closing</p>
+    <h1 class="h1">祝大家硕士研究生科研顺利</h1>
+    <p class="lede">愿你能在 AI 加速的时代，找到自己的问题，跑通自己的闭环，写出真正站得住的论文。</p>
+    <div class="source-list tl">
+      <ol>
+        <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">Stanford HAI: The 2026 AI Index Report</a></li>
+        <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report/science">Stanford HAI: AI Index 2026 Science Chapter</a></li>
+        <li><a href="https://digital-strategy.ec.europa.eu/en/policies/guidelines-transparency-ai-generated-content">European Commission: AI Act Article 50 transparency guidelines</a></li>
+        <li><a href="https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content">European Commission: Code of Practice on Transparency of AI-generated Content</a></li>
+        <li><a href="https://www.nature.com/nature/editorial-policies/ai">Nature Portfolio AI policy</a></li>
+        <li><a href="https://doi.org/10.1038/s41592-026-03020-1">Nature Methods: Using AI responsibly in scientific publishing</a></li>
+        <li><a href="https://help.openai.com/en/articles/11096431">OpenAI Help: Codex CLI Getting Started</a></li>
+        <li><a href="https://code.claude.com/docs/en/overview">Anthropic: Claude Code Docs</a></li>
+        <li><a href="https://www.kimi.com/code/docs/en/">Kimi Code Docs</a></li>
+        <li><a href="https://cvpr.thecvf.com/Conferences/2026/Dates">CVPR 2026 Dates and Deadlines</a></li>
+        <li><a href="https://icml.cc/Conferences/2026/PeerReviewFAQ">ICML 2026 Peer Review FAQ</a></li>
+        <li><a href="https://iclr.cc/Conferences/2026/AuthorGuide">ICLR 2026 Author Guide</a></li>
+        <li><a href="https://zhuanlan.zhihu.com/p/450350473">知乎：读论文七步走</a></li>
+        <li><a href="https://www.zhihu.com/question/659628177/answer/2002333417153513369">知乎：从小白到读懂机器学习论文并复现</a></li>
+        <li><a href="https://blog.csdn.net/deephub/article/details/120126338">CSDN：如何阅读机器学习论文</a></li>
+        <li><a href="https://blog.csdn.net/lady_mumu">CSDN：论文复现方法论相关博客</a></li>
+      </ol>
+    </div>
+    <div class="deck-footer"><span>Q&A</span><span class="slide-number" data-current="15" data-total="15"></span></div>
+    <aside class="notes">
+      <p>今天的分享就到这里。最后我想再强调一句：AI 的出现确实让科研节奏大幅加快，但它不会自动让一个想法变得重要，也不会替你承担学术责任。</p>
+      <p>对硕士阶段的同学来说，最值得培养的是一套稳定的科研闭环：能持续收集文献，能判断问题价值，能快速复现代码，能写清楚贡献，也能在被拒稿之后继续迭代。</p>
+      <p>希望大家不要被“顶会”“创新”“拒稿”这些词吓住。科研本质上是一系列可以训练的动作。只要你愿意持续输出、持续查新、持续复盘，就一定会越来越清楚自己在做什么。祝大家硕士研究生科研顺利，谢谢大家。</p>
+    </aside>
+  </section>
+
+</div>
+
+<div style="position:fixed;bottom:12px;left:12px;font-size:11px;color:var(--text-3);z-index:100;pointer-events:none">
+  S 演讲者视图 · T 切换主题 · ← → 翻页 · F 全屏 · O 总览
+</div>
+
+<script src="./html-ppt-assets/runtime.js"></script>
+</body>
+</html>
